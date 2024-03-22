@@ -1,0 +1,1 @@
+git log --pretty=format:"%H%n%ad%n%B%n---%n" --date=iso > commits.txt
