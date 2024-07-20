@@ -8,15 +8,28 @@ let CommitsParser = {
         let commitsTexts = text.split(commitSeperator);
 
         for (const commitText of commitsTexts) {
-            commits.push(CommitsParser.parseCommit(commitText));
+            if (commitText) {
+                commits.push(CommitsParser.parseCommit(commitText));
+            }
         }
 
         return commits;
     },
 
     parseCommit: function (commitText) {
+        let result = {
+            hash: null,
+            author: null,
+            date: null,
+            subject: null,
+        };
         commitText = commitText.trim();
-        return commitText;
+        let parts = commitText.split("\n");
+        result.hash = parts[0];
+        result.author = parts[1];
+        result.date = parts[2];
+        result.subject = parts[3];
+        return result;
     },
 
 };

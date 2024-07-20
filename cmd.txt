@@ -1,1 +1,2 @@
-git log --pretty=format:"%H%n%ad%n%B%n---%n" --date=iso > commits.txt
+git log --date=iso > commits.txt
+git log --pretty=format:"%H%n%an <%ae>%n%ad%n%s%n---" --date=iso > commits2.txt
