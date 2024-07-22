@@ -1,22 +1,18 @@
 let CommitsParser = {
 
-    parse: function (text) {
-
+    parse: function parseCommits(text) {
         let commitSeperator = "---"
-
         let commits = [];
         let commitsTexts = text.split(commitSeperator);
-
         for (const commitText of commitsTexts) {
             if (commitText) {
                 commits.push(CommitsParser.parseCommit(commitText));
             }
         }
-
         return commits;
     },
 
-    parseCommit: function (commitText) {
+    parseCommit: function parseCommit(commitText) {
         let result = {
             hash: null,
             author: null,
